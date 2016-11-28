@@ -1,0 +1,6 @@
+version: "2"
+services:
+  api:
+    image: glr.honestbee.com/vhit/vrp_challenge:latest
+    ports:
+      - "80:3000"
