@@ -25,19 +25,20 @@ route ={routes:[[8,7,11,55,17,25,18],[24,52,35,40,16,37,33,50,27,2],[9,20,43,44,
 
 var nodes=[];
 nodes.push({id: 'depot',label:'depot', x:request.depot[0],y:request.depot[1],size:100})
-for(i in request.customer_locations){
-   x=  request.customer_locations[i][0];
-  y= request.customer_locations[i][1];
-  size= request.customer_demands[i];
-   nodes.push({id: 'n'+i,x:x,y:y,size:size, color: randomColor(),label:'customer'+i})
-                              }
+
 edges=[]
 
 
 for(i in route.routes){
   source='depot';
   current_route=route.routes[i];
+  pathColor= randomColor();
   for(j in current_route){
+    var indx=current_route[j]
+    x=  d.customer_locations[indx][0];
+  y=  d.customer_locations[indx][1];
+  size=d.customer_demands[indx];
+   nodes.push({id: 'n'+indx,x:x,y:y,size:size, color:pathColor,label:'customer'+indx})
     edges.push(
        {
       "id": "e"+edges.length,
